@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crush crush lng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column; 
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #BA7373;
+            padding: 20px; 
+            overflow-y: auto; 
+        }
+
+        img {
+            max-width: 100%;
+            height: auto; 
+            margin-bottom: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+
+        .typing-text {
+            font-size: 20px; 
+            overflow: hidden;
+            max-width: 100%;
+            white-space: normal; 
+            word-break: break-word; 
+            text-align: center; 
+        }
+
+        @media (max-width: 600px) {
+            .typing-text {
+                font-size: 18px; 
+            }
+        }
+
+
+        audio {
+            display: none; 
+        }
+
+
+        #message-button {
+            display: none; 
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #message-button:hover {
+            background-color: #20b958;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="/1000025447-removebg-preview.png" alt="Foto"> 
+    <div class="typing-text" id="typing"></div>
+
+
+    <audio id="background-music" autoplay loop>
+        <source src="/SaveTik.co_7402501323179953426-hd.mp4" type="audio/mpeg"> 
+        
+    </audio>
+
+
+    <button id="message-button" onclick="https://www.instagram.com/mr.basiccc?igsh=MXJzaTFhdmthYnR3eA==">Reply</button>
+
+    <script>
+        const texts = [
+    "Hi i made this short message to...", 
+    "confess my feelings for u idk how i", 
+    "feel right rn, but i just want u to", 
+    "know that i have a really big crush on u.", 
+];
+
+let index = 0;
+const typingElement = document.getElementById('typing');
+const typingSpeed = 150; 
+const messageButton = document.getElementById('message-button'); 
+
+function typeText() {
+    if (index < texts.length) {
+        const paragraph = document.createElement('p'); 
+        paragraph.textContent = ''; 
+        typingElement.appendChild(paragraph); 
+        let charIndex = 0;
+
+        function typeChar() {
+            if (charIndex < texts[index].length) {
+                paragraph.textContent += texts[index].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, typingSpeed);
+            } else {
+                index++; 
+                if (index < texts.length) {
+                    setTimeout(typeText, 1000); 
+                } else {
+
+                    messageButton.style.display = 'block';
+                }
+            }
+        }
+
+        typeChar();
+    }
+}
+
+typeText(); 
+    </script>
+
+</body>
+</html>
